@@ -1,0 +1,46 @@
+{
+  "id": "spacefucked",
+  "title": "You're in Space and Everything's Fucked ",
+  "description": "",
+  "version": "0.0.1",
+
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14.359"
+  },
+
+  "authors": [
+    {
+      "name": "Pablo Morais Alvarez"
+    }
+  ],
+
+  "esmodules": [
+    "module/spacefucked.mjs"
+  ],
+
+  "styles": [
+    "styles/spacefucked.css"
+  ],
+
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+
+  "grid": {
+    "distance": 1,
+    "units": "m"
+  },
+
+    "documentTypes": {
+      "Actor": {
+        "Struggler": {},
+        "threat": {}
+      },
+      "Item" : {}
+    }
+}

@@ -1,0 +1,61 @@
+<form class="{{cssClass}} spacefucked-sheet spacefucked-threat" autocomplete="off">
+
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <div class="header-fields">
+      <input class="actor-name" type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'SPACEFUCKED.Name'}}" />
+      <select name="system.category">
+        {{#each categories as |label key|}}
+        <option value="{{key}}" {{#if (sf_eq ../system.category key)}}selected{{/if}}>{{localize label}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </header>
+
+  <section class="sheet-body">
+    <div class="panel hp-panel">
+      <h3>{{localize "SPACEFUCKED.HP"}}</h3>
+      <div class="pips">
+        {{#each (sf_range system.hp.max) as |n|}}
+        <span class="hp-pip {{#if (sf_gte system.hp.value n)}}filled{{/if}}" data-value="{{n}}"></span>
+        {{/each}}
+      </div>
+      <input type="number" class="pip-max" name="system.hp.max" value="{{system.hp.max}}" title="{{localize 'SPACEFUCKED.Max'}}" />
+    </div>
+
+    <div class="panel threat-details">
+      <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Limbs"}}</label>
+        <input type="number" name="system.limbs" value="{{system.limbs}}" />
+      </div>
+      <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Size"}}</label>
+        <input type="text" name="system.size" value="{{system.size}}" />
+      </div>
+      <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Body"}}</label>
+        <input type="text" name="system.body" value="{{system.body}}" />
+      </div>
+      <div class="field-row">
+        <label>{{localize "SPACEFUCKED.WeakPoints"}}</label>
+        <input type="text" name="system.weakPoints" value="{{system.weakPoints}}" />
+        <span class="weak-point-toggle {{#if system.weakPointsKnown}}active{{/if}}" title="{{localize 'SPACEFUCKED.WeakPointsKnown'}}">
+          <i class="fas fa-eye"></i>
+        </span>
+      </div>
+      <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Behavior"}}</label>
+        <input type="text" name="system.behavior" value="{{system.behavior}}" />
+      </div>
+      <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Extra"}}</label>
+        <input type="text" name="system.extra" value="{{system.extra}}" />
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>{{localize "SPACEFUCKED.Biography"}}</h3>
+      <textarea name="system.biography">{{system.biography}}</textarea>
+    </div>
+  </section>
+</form>
