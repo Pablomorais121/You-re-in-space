@@ -39,7 +39,10 @@
     "documentTypes": {
       "Actor": {
         "Struggler": {},
-        "threat": {}
+        "threat-hazard": {},
+        "threat-robot": {},
+        "threat-person": {},
+        "threat-monster": {}
       },
       "Item" : {}
     }
