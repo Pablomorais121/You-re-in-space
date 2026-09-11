@@ -12,20 +12,53 @@ export default class StrugglerSheet extends HandlebarsApplicationMixin(ActorShee
     }
   };
 
-  static PARTS = {
-    main: {
-      template: "systems/spacefucked/templates/actor/struggler-sheet.hbs",
+  static TABS = {
+    primary: {
+      tabs: [
+        { id: "main", label: "SPACEFUCKED.TabMain" },
+        { id: "inventory", label: "SPACEFUCKED.TabInventory" },
+        { id: "notes", label: "SPACEFUCKED.TabNotes" }
+      ],
+      initial: "main"
     }
+  };
+
+  static PARTS = {
+    header: { template: "systems/spacefucked/templates/actor/struggler/struggler-sheet-header.hbs",},
+    tabs: { template: "templates/generic/tab-navigation.hbs",},
+    main: { template: "systems/spacefucked/templates/actor/struggler/struggler-sheet-main.hbs",},
+    inventory: { template: "systems/spacefucked/templates/actor/struggler/struggler-sheet-inventory.hbs",},
+    notes: { template: "systems/spacefucked/templates/actor/struggler/struggler-sheet-notes.hbs",}
   };
 
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
+    context.actor = this.actor;
     context.system = this.actor.system;
+    context.cssClass = this.actor.isOwner ? "editable" : "locked";
+    context.tabs = this._prepareTabs("primary");
+
+    const items = this.actor.items;
+    context.weapons = items.filter(i => i.type === "weapon");
+    context.armor = items.filter(i => i.type === "armor");
+    context.utility = items.filter(i => i.type === "utility");
+    context.keyItems = items.filter(i => i.type === "keyitem");
+
     return context;
   }
+
+  async _preparePartContext(partId, context) {
+    context = await super._preparePartContext(partId, context);
+    if (context.tabs?.[partId]) {
+        context.tab = context.tabs[partId];
+    }
+    return context;
+}
 
   static async #onRollCheck(event, target) {
     console.log("Roll check for", this.actor.name);
   }
+
+
     
 }
