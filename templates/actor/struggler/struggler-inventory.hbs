@@ -1,0 +1,79 @@
+ <div class="tab  {{tab.cssClass}}" data-group="primary" data-tab="inventory">
+
+      <div class="item-list-block">
+        <header class="item-list-header">
+          <h3>{{localize "SPACEFUCKED.Weapons"}} & {{localize "SPACEFUCKED.Tools"}}</h3>
+          <a class="item-create" data-type="weapon"><i class="fas fa-plus"></i> {{localize "SPACEFUCKED.AddWeapon"}}</a>
+          <a class="item-create" data-type="tool"><i class="fas fa-plus"></i> {{localize "SPACEFUCKED.AddTool"}}</a>
+        </header>
+        <ol class="item-list">
+          {{#each weapons as |item|}}
+          <li class="item" data-item-id="{{item.id}}">
+            <img src="{{item.img}}" />
+            <span class="item-name item-edit">{{item.name}}</span>
+            <span class="item-detail">{{item.system.damage}} DMG</span>
+            <a class="item-to-chat"><i class="fas fa-comment"></i></a>
+            <a class="item-edit"><i class="fas fa-edit"></i></a>
+            <a class="item-delete"><i class="fas fa-trash"></i></a>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+
+      <div class="item-list-block">
+        <header class="item-list-header">
+          <h3>{{localize "SPACEFUCKED.Armor"}}</h3>
+          <a class="item-create" data-type="armor"><i class="fas fa-plus"></i> {{localize "SPACEFUCKED.AddArmor"}}</a>
+        </header>
+        <ol class="item-list">
+          {{#each armor as |item|}}
+          <li class="item" data-item-id="{{item.id}}">
+            <img src="{{item.img}}" />
+            <span class="item-name item-edit">{{item.name}}</span>
+            <span class="item-detail">{{localize "SPACEFUCKED.Durability"}}: {{item.system.durability.value}}/{{item.system.durability.max}}</span>
+            <a class="item-to-chat"><i class="fas fa-comment"></i></a>
+            <a class="item-edit"><i class="fas fa-edit"></i></a>
+            <a class="item-delete"><i class="fas fa-trash"></i></a>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+
+      <div class="item-list-block">
+        <header class="item-list-header">
+          <h3>{{localize "SPACEFUCKED.Utility"}}</h3>
+          <a class="item-create" data-type="utility"><i class="fas fa-plus"></i> {{localize "SPACEFUCKED.AddUtility"}}</a>
+        </header>
+        <ol class="item-list">
+          {{#each utility as |item|}}
+          <li class="item" data-item-id="{{item.id}}">
+            <img src="{{item.img}}" />
+            <span class="item-name item-edit">{{item.name}}</span>
+            <span class="item-detail">{{localize "SPACEFUCKED.Uses"}}: {{item.system.uses.value}}/{{item.system.uses.max}}</span>
+            <a class="item-to-chat"><i class="fas fa-comment"></i></a>
+            <a class="item-edit"><i class="fas fa-edit"></i></a>
+            <a class="item-delete"><i class="fas fa-trash"></i></a>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+
+      <div class="item-list-block">
+        <header class="item-list-header">
+          <h3>{{localize "SPACEFUCKED.KeyItems"}}</h3>
+          <a class="item-create" data-type="keyitem"><i class="fas fa-plus"></i> {{localize "SPACEFUCKED.AddKeyItem"}}</a>
+        </header>
+        <ol class="item-list">
+          {{#each keyItems as |item|}}
+          <li class="item" data-item-id="{{item.id}}">
+            <img src="{{item.img}}" />
+            <span class="item-name item-edit">{{item.name}}</span>
+            <a class="item-to-chat"><i class="fas fa-comment"></i></a>
+            <a class="item-edit"><i class="fas fa-edit"></i></a>
+            <a class="item-delete"><i class="fas fa-trash"></i></a>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+
+    </div>

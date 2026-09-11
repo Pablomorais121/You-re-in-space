@@ -1,0 +1,69 @@
+<div class="tab  {{tab.cssClass}}" data-group="primary" data-tab="main">
+
+      <div class="panel stats-panel">
+        <h3>{{localize "SPACEFUCKED.Stats"}}</h3>
+        <div class="stat-row">
+          <label>{{localize "SPACEFUCKED.StatTech"}}</label>
+          <input type="number" name="system.stats.tech.value" value="{{system.stats.tech.value}}" />
+        </div>
+        <div class="stat-row">
+          <label>{{localize "SPACEFUCKED.StatFlesh"}}</label>
+          <input type="number" name="system.stats.flesh.value" value="{{system.stats.flesh.value}}" />
+        </div>
+        <button type="button" class="roll-check"><i class="fas fa-dice"></i> {{localize "SPACEFUCKED.RollCheck"}}</button>
+        <button type="button" class="search-check"><i class="fas fa-search"></i> {{localize "SPACEFUCKED.SearchCheck"}}</button>
+      </div>
+
+      <div class="panel resources-panel">
+        <h3>{{localize "SPACEFUCKED.WillAndLuck"}}</h3>
+        <div class="resource-row">
+          <label>{{localize "SPACEFUCKED.Will"}}</label>
+          <div class="pips">
+            {{#each (sf_range system.resources.will.max) as |n|}}
+            <span class="resource-pip {{#if (sf_gte system.resources.will.value n)}}filled{{/if}}" data-resource="will" data-value="{{n}}"></span>
+            {{/each}}
+          </div>
+          <input type="number" class="pip-max" name="system.resources.will.max" value="{{system.resources.will.max}}" title="{{localize 'SPACEFUCKED.Max'}}" />
+        </div>
+        <div class="resource-row">
+          <label>{{localize "SPACEFUCKED.Luck"}}</label>
+          <div class="pips">
+            {{#each (sf_range system.resources.luck.max) as |n|}}
+            <span class="resource-pip {{#if (sf_gte system.resources.luck.value n)}}filled{{/if}}" data-resource="luck" data-value="{{n}}"></span>
+            {{/each}}
+          </div>
+          <input type="number" class="pip-max" name="system.resources.luck.max" value="{{system.resources.luck.max}}" title="{{localize 'SPACEFUCKED.Max'}}" />
+        </div>
+      </div>
+
+      <div class="panel wounds-panel">
+        <h3>{{localize "SPACEFUCKED.Wounds"}}</h3>
+        <div class="wound-row">
+          <span class="wound-toggle {{#if system.wounds.level1.active}}active{{/if}}" data-level="level1">1</span>
+          <input type="text" name="system.wounds.level1.text" value="{{system.wounds.level1.text}}" placeholder="{{localize 'SPACEFUCKED.WoundLevel1Placeholder'}}" />
+        </div>
+        <div class="wound-row">
+          <span class="wound-toggle {{#if system.wounds.level2.active}}active{{/if}}" data-level="level2">2</span>
+          <input type="text" name="system.wounds.level2.text" value="{{system.wounds.level2.text}}" placeholder="{{localize 'SPACEFUCKED.WoundLevel2Placeholder'}}" />
+        </div>
+        <div class="wound-row">
+          <span class="wound-toggle {{#if system.wounds.level3.active}}active{{/if}}" data-level="level3">3</span>
+          <input type="text" name="system.wounds.level3.text" value="{{system.wounds.level3.text}}" placeholder="{{localize 'SPACEFUCKED.WoundLevel3Placeholder'}}" />
+        </div>
+      </div>
+
+      <div class="panel xp-panel">
+        <h3>{{localize "SPACEFUCKED.Progression"}}</h3>
+        <div class="xp-row">
+          <label>{{localize "SPACEFUCKED.XP"}}</label>
+          <input type="number" name="system.xp.value" value="{{system.xp.value}}" />
+          <label>{{localize "SPACEFUCKED.Marks"}}</label>
+          <input type="number" name="system.xp.marks" value="{{system.xp.marks}}" />
+        </div>
+        <div class="save-row">
+          <label>{{localize "SPACEFUCKED.LastSave"}}</label>
+          <input type="text" name="system.lastSave" value="{{system.lastSave}}" />
+        </div>
+      </div>
+
+</div>

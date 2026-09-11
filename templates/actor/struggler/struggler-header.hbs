@@ -1,0 +1,20 @@
+<div class="tab {{tab.cssClass}}" data-tab="main" data-group="primary">
+
+    <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <div class="header-fields">
+            <input class="actor-name" type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'SPACEFUCKED.Name'}}" />
+            <div class="header-row">
+                <label>{{localize "SPACEFUCKED.Pronouns"}}</label>
+                <input type="text" name="system.pronouns" value="{{system.pronouns}}" />
+                <label>{{localize "SPACEFUCKED.Background"}}</label>
+                <input type="text" name="system.background" value="{{system.background}}" />
+            </div>
+            <div class="header-row">
+                <label>{{localize "SPACEFUCKED.Look"}}</label>
+                <input type="text" name="system.look" value="{{system.look}}" />
+            </div>
+        </div>
+    </header>
+
+</div>
