@@ -1,0 +1,52 @@
+/* --- Imagen de perfil --- */
+.spacefucked-sheet .profile-img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.spacefucked-sheet .sheet-header {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+/* --- Tabs: ocultar todos excepto el activo --- */
+.spacefucked-sheet .sheet-body .tab {
+  display: none;
+}
+
+.spacefucked-sheet .sheet-body .tab.active {
+  display: block;
+}
+
+/* --- Nav de tabs --- */
+.spacefucked-sheet .sheet-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #666;
+  margin-bottom: 8px;
+}
+
+.spacefucked-sheet .sheet-tabs a.item {
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.spacefucked-sheet .sheet-tabs a.item.active {
+  font-weight: bold;
+  border-bottom: 2px solid currentColor;
+}
+
+/* --- Layout general de filas --- */
+.spacefucked-sheet .header-row,
+.spacefucked-sheet .stat-row,
+.spacefucked-sheet .resource-row,
+.spacefucked-sheet .wound-row,
+.spacefucked-sheet .xp-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 4px;
+}
