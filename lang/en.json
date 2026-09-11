@@ -1,1 +1,61 @@
-{}
+{
+  "SPACEFUCKED": {
+    "Name": "Name",
+    "Pronouns": "Pronouns",
+    "Background": "Background",
+    "Look": "Look",
+
+    "TabMain": "Main",
+    "TabInventory": "Inventory",
+    "TabNotes": "Notes",
+
+    "Stats": "Stats",
+    "StatTech": "Tech",
+    "StatFlesh": "Flesh",
+    "RollCheck": "Roll Check",
+    "SearchCheck": "Search Check",
+
+    "WillAndLuck": "Will & Luck",
+    "Will": "Will",
+    "Luck": "Luck",
+    "Max": "Max",
+
+    "Wounds": "Wounds",
+    "WoundLevel1Placeholder": "Minor wound...",
+    "WoundLevel2Placeholder": "Serious wound...",
+    "WoundLevel3Placeholder": "Critical wound...",
+
+    "Progression": "Progression",
+    "XP": "XP",
+    "Marks": "Marks",
+    "LastSave": "Last Save",
+
+    "Weapons": "Weapons",
+    "Tools": "Tools",
+    "AddWeapon": "Add Weapon",
+    "AddTool": "Add Tool",
+
+    "Armor": "Armor",
+    "AddArmor": "Add Armor",
+    "Durability": "Durability",
+
+    "Utility": "Utility",
+    "AddUtility": "Add Utility",
+    "Uses": "Uses",
+
+    "KeyItems": "Key Items",
+    "AddKeyItem": "Add Key Item",
+
+    "Biography": "Biography"
+  },
+
+  "TYPES": {
+    "Actor": {
+      "struggler": "Struggler",
+      "threat-hazard": "Hazard",
+      "threat-robot": "Robot",
+      "threat-person": "Person",
+      "threat-monster": "Monster"
+    }
+  }
+}
