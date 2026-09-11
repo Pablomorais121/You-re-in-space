@@ -15,6 +15,12 @@ Hooks.once("init", () => {
   CONFIG.Actor.dataModels["threat-person"] = PersonThreatData;
   CONFIG.Actor.dataModels["threat-monster"] = MonsterThreatData;
 
+
+  Handlebars.registerHelper("sf_range", (n) => {
+    return Array.from({ length: n }, (_, i) => i + 1);
+  });
+  Handlebars.registerHelper("sf_gte", (a, b) => a >= b);
+
   const {Actors, Items} = foundry.documents.collections;
 
   Actors.registerSheet("spacefucked", StrugglerSheet, {

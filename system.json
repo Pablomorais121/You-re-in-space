@@ -38,7 +38,7 @@
 
     "documentTypes": {
       "Actor": {
-        "Struggler": {},
+        "struggler": {},
         "threat-hazard": {},
         "threat-robot": {},
         "threat-person": {},
