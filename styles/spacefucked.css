@@ -1,56 +1,510 @@
-/* --- Imagen de perfil --- */
-.struggler .profile-img {
-  max-width: 100px;
-  max-height: 100px;
-  object-fit: cover;
-  border-radius: 4px;
+/* ============================================================
+   SPACEFUCKED — "Station ID Card" Design System
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --sf-black: #111111;
+  --sf-white: #f5f5f0;
+  --sf-red: #d6242a;
+  --sf-red-dark: #a81b20;
+  --sf-gray-line: #999999;
+  --sf-card-shadow: 2px 3px 0 rgba(17, 17, 17, 0.25);
+
+  --sf-font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --sf-font-body: 'Inter', system-ui, sans-serif;
 }
 
-.struggler .sheet-header {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
+/* ------------------------------------------------------------
+   App chrome
+   ------------------------------------------------------------ */
+.struggler.application {
+  --color-text-primary: var(--sf-black);
 }
 
-/* --- Tabs: ocultar todos excepto el activo --- */
 .struggler .window-content {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background: var(--sf-white);
+  font-family: var(--sf-font-body);
+  color: var(--sf-black);
+  padding: 10px;
+  gap: 10px;
+}
+
+.struggler input,
+.struggler textarea,
+.struggler select {
+  font-family: var(--sf-font-body);
+  color: var(--sf-black);
+  background: transparent;
+}
+
+/* ------------------------------------------------------------
+   Header — Identification Card
+   ------------------------------------------------------------ */
+.struggler .sheet-header {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: #fff;
+  border: 2px solid var(--sf-black);
+  border-radius: 10px;
+  box-shadow: var(--sf-card-shadow);
+  padding: 12px;
+  position: relative;
+}
+
+.struggler .sheet-header::before {
+  content: "STATION";
+  position: absolute;
+  top: -11px;
+  left: 14px;
+  background: var(--sf-red);
+  color: #fff;
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+
+.struggler .profile-img {
+  width: 90px;
+  height: 90px;
+  min-width: 90px;
+  object-fit: cover;
+  border: 2px solid var(--sf-red);
+  border-radius: 4px;
+  margin-top: 6px;
+}
+
+.struggler .header-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.struggler .actor-name {
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  border-bottom: 2px solid var(--sf-black);
+  padding: 2px 0;
+  background: transparent;
+}
+
+.struggler .header-row {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.struggler .header-row label {
+  font-family: var(--sf-font-display);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--sf-red);
+  white-space: nowrap;
+}
+
+.struggler .header-row input {
+  flex: 1;
+  min-width: 80px;
+  border: none;
+  border-bottom: 1px solid var(--sf-gray-line);
+  padding: 1px 2px;
+}
+
+.struggler .header-row input:focus,
+.struggler input:focus,
+.struggler textarea:focus {
+  outline: none;
+  border-color: var(--sf-red);
+}
+
+/* ------------------------------------------------------------
+   Tabs — Folder tabs
+   ------------------------------------------------------------ */
+.struggler .sheet-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid var(--sf-black);
+  padding: 0 4px;
+}
+
+.struggler .sheet-tabs a {
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: var(--sf-black);
+  background: #e5e5e0;
+  border: 2px solid var(--sf-black);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  padding: 6px 16px;
+  cursor: pointer;
+  transform: translateY(2px);
+  transition: transform 0.1s ease, background 0.1s ease;
+}
+
+.struggler .sheet-tabs a:hover {
+  background: #f0f0ea;
+}
+
+.struggler .sheet-tabs a.active {
+  background: var(--sf-red);
+  color: #fff;
+  border-color: var(--sf-black);
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------
+   Tab panels (scroll container)
+   ------------------------------------------------------------ */
+.struggler .window-content > .tab {
+  display: none;
 }
 
 .struggler .window-content > .tab.active {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   flex: 1;
   overflow-y: auto;
   min-height: 0;
+  padding: 4px 2px 10px;
 }
 
-/* --- Nav de tabs --- */
-.struggler .sheet-tabs {
+/* ------------------------------------------------------------
+   Panels — Cards with red header band
+   ------------------------------------------------------------ */
+.struggler .panel {
+  background: #fff;
+  border: 2px solid var(--sf-black);
+  border-radius: 8px;
+  box-shadow: var(--sf-card-shadow);
+  overflow: hidden;
+}
+
+.struggler .panel h3 {
+  margin: 0;
+  background: var(--sf-red);
+  color: #fff;
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+}
+
+.struggler .panel > *:not(h3) {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.struggler .panel > *:last-child {
+  padding-bottom: 12px;
+}
+
+.struggler .panel > *:first-of-type:not(h3) {
+  padding-top: 10px;
+}
+
+/* ------------------------------------------------------------
+   Stats panel
+   ------------------------------------------------------------ */
+.struggler .stat-row {
   display: flex;
-  gap: 8px;
-  border-bottom: 1px solid #666;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 8px;
 }
 
-.struggler .sheet-tabs a.item {
-  padding: 4px 10px;
+.struggler .stat-row label {
+  font-family: var(--sf-font-display);
+  font-size: 12px;
+  text-transform: uppercase;
+  width: 60px;
+}
+
+.struggler .stat-row input {
+  width: 46px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  border: 2px solid var(--sf-red);
+  border-radius: 3px;
+}
+
+.struggler .roll-check,
+.struggler .search-check {
+  font-family: var(--sf-font-display);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: var(--sf-black);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 7px 12px;
+  margin: 4px 6px 4px 0;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.struggler .roll-check:hover,
+.struggler .search-check:hover {
+  background: var(--sf-red);
+}
+
+/* ------------------------------------------------------------
+   Resources (Will & Luck) — pips as red squares
+   ------------------------------------------------------------ */
+.struggler .resource-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.struggler .resource-row label {
+  font-family: var(--sf-font-display);
+  font-size: 12px;
+  text-transform: uppercase;
+  width: 50px;
+}
+
+.struggler .pips {
+  display: flex;
+  gap: 4px;
+}
+
+.struggler .resource-pip {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--sf-red);
+  border-radius: 2px;
+  background: transparent;
   cursor: pointer;
 }
 
-.struggler .sheet-tabs a.item.active {
-  font-weight: bold;
-  border-bottom: 2px solid currentColor;
+.struggler .resource-pip.filled {
+  background: var(--sf-red);
 }
 
-/* --- Layout general de filas --- */
-.struggler .header-row,
-.struggler .stat-row,
-.struggler .resource-row,
-.struggler .wound-row,
-.struggler .xp-row {
+.struggler .pip-max {
+  width: 36px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid var(--sf-gray-line);
+  margin-left: auto;
+}
+
+/* ------------------------------------------------------------
+   Wounds
+   ------------------------------------------------------------ */
+.struggler .wound-row {
   display: flex;
-  gap: 6px;
   align-items: center;
-  margin-bottom: 4px;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.struggler .wound-toggle {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  border: 2px solid var(--sf-black);
+  border-radius: 3px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.struggler .wound-toggle.active {
+  background: var(--sf-red);
+  border-color: var(--sf-red);
+  color: #fff;
+}
+
+.struggler .wound-row input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid var(--sf-gray-line);
+  padding: 2px 0;
+}
+
+/* ------------------------------------------------------------
+   XP / Progression
+   ------------------------------------------------------------ */
+.struggler .xp-row,
+.struggler .save-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.struggler .xp-row label,
+.struggler .save-row label {
+  font-family: var(--sf-font-display);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.struggler .xp-row input[type="number"] {
+  width: 44px;
+  text-align: center;
+  border: 2px solid var(--sf-black);
+  border-radius: 3px;
+}
+
+.struggler .save-row input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid var(--sf-gray-line);
+}
+
+/* ------------------------------------------------------------
+   Inventory tab
+   ------------------------------------------------------------ */
+.struggler .item-list-block {
+  background: #fff;
+  border: 2px solid var(--sf-black);
+  border-radius: 8px;
+  box-shadow: var(--sf-card-shadow);
+  overflow: hidden;
+}
+
+.struggler .item-list-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: var(--sf-red);
+  padding: 6px 12px;
+}
+
+.struggler .item-list-header h3 {
+  margin: 0;
+  flex: 1;
+  color: #fff;
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.struggler .item-create {
+  font-family: var(--sf-font-display);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  padding: 3px 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.struggler .item-create:hover {
+  background: #fff;
+  color: var(--sf-red);
+}
+
+.struggler .item-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 12px 10px;
+}
+
+.struggler .item-list .item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.struggler .item-list .item:last-child {
+  border-bottom: none;
+}
+
+.struggler .item-list .item img {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border: 1px solid var(--sf-black);
+  border-radius: 3px;
+}
+
+.struggler .item-name {
+  flex: 1;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.struggler .item-name:hover {
+  color: var(--sf-red);
+}
+
+.struggler .item-detail {
+  font-size: 12px;
+  color: var(--sf-gray-line);
+  white-space: nowrap;
+}
+
+.struggler .item-list .item a {
+  color: var(--sf-black);
+  cursor: pointer;
+  padding: 2px;
+}
+
+.struggler .item-list .item a:hover {
+  color: var(--sf-red);
+}
+
+/* ------------------------------------------------------------
+   Notes tab
+   ------------------------------------------------------------ */
+.struggler .tab.notes h3 {
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--sf-red);
+  margin: 0 0 6px;
+}
+
+.struggler .tab.notes textarea {
+  width: 100%;
+  min-height: 300px;
+  border: 2px solid var(--sf-black);
+  border-radius: 6px;
+  padding: 10px;
+  resize: vertical;
+  background: #fff;
+  line-height: 1.5;
 }
