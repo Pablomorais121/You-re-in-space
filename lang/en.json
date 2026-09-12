@@ -23,7 +23,6 @@
     "Wounds": "Wounds",
     "WoundLevel1Placeholder": "Minor wound...",
     "WoundLevel2Placeholder": "Serious wound...",
-    "WoundLevel3Placeholder": "Critical wound...",
 
     "Progression": "Progression",
     "XP": "XP",
@@ -46,7 +45,19 @@
     "KeyItems": "Key Items",
     "AddKeyItem": "Add Key Item",
 
-    "Biography": "Biography"
+    "Biography": "Biography",
+
+    "RollStat": "Stat",
+    "RollStatNone": "None",
+    "RollDesperation": "Desperation",
+    "RollAdvantage": "Advantage",
+    "RollDisadvantage": "Disadvantage",
+    "RollHits": "Hits",
+    "RollFailure": "Failure",
+    "RollPyrrhic": "Pyrrhic Success",
+    "RollSuccess": "Success",
+    "RollPool": "Dice Pool"
+
   },
 
   "TYPES": {

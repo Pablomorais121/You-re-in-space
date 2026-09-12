@@ -1,25 +1,41 @@
-<div class="spacefucked-roll-card">
-  <header class="roll-header">
-    <strong>{{actorName}}</strong>
-    {{#if flavor}}<span class="roll-flavor">— {{flavor}}</span>{{/if}}
-  </header>
-
-  <div class="roll-breakdown">
-    {{#if zeroDiceRule}}
-      <p>{{localize "SPACEFUCKED.ZeroDiceRuleNote"}}</p>
-      <p>{{localize "SPACEFUCKED.DiceRolled"}}: {{dieResults.0}}, {{dieResults.1}} &rarr; {{localize "SPACEFUCKED.KeptLower"}}: <strong>{{keptDie}}</strong></p>
-    {{else}}
-      <p>
-        {{localize "SPACEFUCKED.Pool"}}: <strong>{{pool}}d6</strong>
-        ({{base}}d6 base{{#if statLabel}} + {{statValue}} {{statLabel}}{{/if}}{{#if advantages}} + {{advantages}} {{localize "SPACEFUCKED.Advantages"}}{{/if}}{{#if disadvantages}} - {{disadvantages}} {{localize "SPACEFUCKED.Disadvantages"}}{{/if}}{{#if wounds}} - {{wounds}} {{localize "SPACEFUCKED.Wounds"}}{{/if}}{{#if desperation}} + 2 {{localize "SPACEFUCKED.Desperation"}}{{/if}})
-      </p>
-      <p>{{localize "SPACEFUCKED.DiceRolled"}}: {{#each dieResults}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>
-    {{/if}}
-    {{#if desperation}}<p class="desperation-note">⚠ {{localize "SPACEFUCKED.DesperationNote"}}</p>{{/if}}
+<form class="spacefucked-roll-form">
+  <div class="form-group">
+    <label>{{localize "SPACEFUCKED.RollStat"}}</label>
+    <div class="button-toggle-group">
+      <button type="button" class="toggle-btn" data-stat="tech">{{localize "SPACEFUCKED.StatTech"}}</button>
+      <button type="button" class="toggle-btn" data-stat="flesh">{{localize "SPACEFUCKED.StatFlesh"}}</button>
+    </div>
+    <input type="hidden" name="stat" value="none" />
   </div>
 
-  <div class="roll-result outcome-{{outcomeClass}}">
-    <span class="hits">{{hits}} {{localize "SPACEFUCKED.Hits"}}</span>
-    <span class="outcome">{{outcome}}</span>
+  <div class="form-group">
+    <label>
+      <input type="checkbox" name="desperation" />
+      {{localize "SPACEFUCKED.RollDesperation"}}
+    </label>
   </div>
-</div>
+
+  <div class="form-group">
+    <label>{{localize "SPACEFUCKED.RollAdvantage"}}</label>
+    <div class="counter-group">
+      <button type="button" class="counter-btn" data-counter="advantage" data-delta="-1">−</button>
+      <span class="counter-value" data-counter-value="advantage">0</span>
+      <button type="button" class="counter-btn" data-counter="advantage" data-delta="1">+</button>
+    </div>
+    <input type="hidden" name="advantage" value="0" />
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "SPACEFUCKED.RollDisadvantage"}}</label>
+    <div class="counter-group">
+      <button type="button" class="counter-btn" data-counter="disadvantage" data-delta="-1">−</button>
+      <span class="counter-value" data-counter-value="disadvantage">0</span>
+      <button type="button" class="counter-btn" data-counter="disadvantage" data-delta="1">+</button>
+    </div>
+    <input type="hidden" name="disadvantage" value="0" />
+  </div>
+
+  <div class="pool-display">
+    {{localize "SPACEFUCKED.RollPool"}}: <span class="pool-value">1</span>
+  </div>
+</form>
