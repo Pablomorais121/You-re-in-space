@@ -1,14 +1,17 @@
+import performRoll from "../utils.mjs";
+
 const { ActorSheetV2 } = foundry.applications.sheets;
 const {HandlebarsApplicationMixin} = foundry.applications.api;
 
+
 export default class StrugglerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
-  
+
   static DEFAULT_OPTIONS = {
     classes: ["spacefucked", "sheet", "actor", "struggler"],
     position: { width: 650, height: 750},
     form: {submitOnChange: true},
     actions: {
-      rollCheck: StrugglerSheet.#onRollCheck
+      openRoll: StrugglerSheet.#onOpenRoll
     }
   };
 
@@ -53,12 +56,12 @@ export default class StrugglerSheet extends HandlebarsApplicationMixin(ActorShee
         context.tab = context.tabs[partId];
     }
     return context;
-}
+  }
 
-  static async #onRollCheck(event, target) {
-    console.log("Roll check for", this.actor.name);
+  static async #onOpenRoll(event, target) {
+    await performRoll(this.actor);
   }
 
 
-    
+  
 }

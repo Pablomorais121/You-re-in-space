@@ -73,7 +73,9 @@ export default class StrugglerData extends foundry.abstract.TypeDataModel {
         return schema;
     }
 
-     prepareDerivedData() {
-            this.activeWoundCount = Object.values(this.wounds).filter(w => w.active).length;
-        };
+    prepareDerivedData() {
+        this.activeWoundCount = Object.values(this.wounds).filter(w => w.active).length;
+    };
+
+    
 }
