@@ -1,4 +1,4 @@
-import performRoll from "../utils.mjs";
+import {performRoll} from "../utils.mjs";
 
 const { ActorSheetV2 } = foundry.applications.sheets;
 const {HandlebarsApplicationMixin} = foundry.applications.api;
@@ -62,6 +62,4 @@ export default class StrugglerSheet extends HandlebarsApplicationMixin(ActorShee
     await performRoll(this.actor);
   }
 
-
-  
 }
