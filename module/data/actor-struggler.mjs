@@ -45,9 +45,8 @@ export default class StrugglerData extends foundry.abstract.TypeDataModel {
         })
 
         schema.wounds = new SchemaField({
-           level1: new SchemaField({ active: new BooleanField({ initial: false }), text: new StringField() }),
-            level2: new SchemaField({ active: new BooleanField({ initial: false }), text: new StringField() }),
-            level3: new SchemaField({ active: new BooleanField({ initial: false }), text: new StringField() })
+            level1: new SchemaField({ active: new BooleanField({ initial: false }), text: new StringField() }),
+            level2: new SchemaField({ active: new BooleanField({ initial: false }), text: new StringField() })
         })
     
 
