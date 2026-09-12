@@ -510,3 +510,202 @@
   background: #fff;
   line-height: 1.5;
 }
+
+
+/* ============================================================
+   Roll Dialog
+   ============================================================ */
+.spacefucked-roll-dialog .window-header {
+  background: var(--sf-black);
+  color: #fff;
+}
+
+.spacefucked-roll-dialog .window-title {
+  font-family: var(--sf-font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.spacefucked-roll-dialog .window-content {
+  background: var(--sf-white);
+  padding: 14px;
+}
+
+.spacefucked-roll-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: var(--sf-font-body);
+  color: var(--sf-black);
+}
+
+.spacefucked-roll-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.spacefucked-roll-form .form-group > label {
+  font-family: var(--sf-font-display);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--sf-red);
+}
+
+.spacefucked-roll-form .form-group > label input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+/* Stat toggle buttons */
+.spacefucked-roll-form .button-toggle-group {
+  display: flex;
+  gap: 6px;
+}
+
+.spacefucked-roll-form .toggle-btn {
+  flex: 1;
+  padding: 8px;
+  border: 2px solid var(--sf-black);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--sf-black);
+  font-family: var(--sf-font-display);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+
+.spacefucked-roll-form .toggle-btn:hover {
+  background: #eee;
+}
+
+.spacefucked-roll-form .toggle-btn.active {
+  background: var(--sf-red);
+  color: #fff;
+  border-color: var(--sf-red);
+}
+
+/* Advantage/Disadvantage counters */
+.spacefucked-roll-form .counter-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.spacefucked-roll-form .counter-btn {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--sf-black);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--sf-black);
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+
+.spacefucked-roll-form .counter-btn:hover {
+  background: var(--sf-red);
+  color: #fff;
+  border-color: var(--sf-red);
+}
+
+.spacefucked-roll-form .counter-value {
+  min-width: 20px;
+  text-align: center;
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Pool display */
+.spacefucked-roll-form .pool-display {
+  margin-top: 6px;
+  padding: 10px;
+  background: var(--sf-black);
+  color: #fff;
+  border-radius: 6px;
+  text-align: center;
+  font-family: var(--sf-font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.spacefucked-roll-form .pool-display .pool-value {
+  color: var(--sf-red);
+  font-size: 20px;
+  margin-left: 6px;
+}
+
+/* Dialog buttons (Roll / Cancel) */
+.spacefucked-roll-dialog button.default,
+.spacefucked-roll-dialog .dialog-buttons button {
+  font-family: var(--sf-font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   Roll Chat Card
+   ============================================================ */
+.spacefucked-roll-card {
+  font-family: var(--sf-font-body);
+  border: 2px solid var(--sf-black);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.spacefucked-roll-card .roll-outcome {
+  margin: 0;
+  padding: 8px 12px;
+  font-family: var(--sf-font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.spacefucked-roll-card .roll-outcome.outcome-failure {
+  background: var(--sf-black);
+}
+
+.spacefucked-roll-card .roll-outcome.outcome-pyrrhic {
+  background: var(--sf-red-dark);
+}
+
+.spacefucked-roll-card .roll-outcome.outcome-success {
+  background: var(--sf-red);
+}
+
+.spacefucked-roll-card .roll-hits {
+  margin: 0;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--sf-gray-line);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.spacefucked-roll-card .dice-roll {
+  padding: 8px 12px;
+}
+
+.spacefucked-roll-card .dice-formula {
+  font-family: var(--sf-font-body);
+  font-size: 12px;
+  color: var(--sf-gray-line);
+}
+
+.spacefucked-roll-card .dice-total {
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  color: var(--sf-black);
+}
