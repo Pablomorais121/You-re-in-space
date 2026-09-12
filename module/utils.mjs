@@ -35,7 +35,7 @@ export  async function performRoll(actor) {
                         const clickedStat = btn.dataset.stat;
                         if (statInput.value === clickedStat){
                             statInput.value = "none";
-                            btn.classList.rermove("active");
+                            btn.classList.remove("active");
                         } else {
                             statInput.value = clickedStat;
                             statButtons.forEach(b => b.classList.remove("active"));
