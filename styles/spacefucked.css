@@ -196,6 +196,7 @@
   border-radius: 8px;
   box-shadow: var(--sf-card-shadow);
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .struggler .panel h3 {
@@ -394,6 +395,7 @@
   border-radius: 8px;
   box-shadow: var(--sf-card-shadow);
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .struggler .item-list-header {
