@@ -5,9 +5,10 @@ import PersonThreatData from "./data/threats/threat-person.mjs";
 import MonsterThreatData from "./data/threats/threat-monster.mjs";
 
 import StrugglerSheet from "./sheets/struggler-sheet.mjs";
+import HazardSheet from "./sheets/threats/hazard-sheet.mjs";
 
 Hooks.once("init", () => {
-  console.log("Spacefucked | Initializing 'You're in Space and Everything's Fucked' fan system prototype");
+  console.log("Spacefucked | Initializing 'You're in Space and Everything's Fucked' ");
 
   CONFIG.Actor.dataModels.struggler = StrugglerData;
   CONFIG.Actor.dataModels["threat-hazard"] = HazardThreatData;
@@ -19,6 +20,7 @@ Hooks.once("init", () => {
   Handlebars.registerHelper("sf_range", (n) => {
     return Array.from({ length: n }, (_, i) => i + 1);
   });
+  Handlebars.registerHelper("sf_has", (set, value) => set?.has(value));
   Handlebars.registerHelper("sf_gte", (a, b) => a >= b);
 
   const {Actors, Items} = foundry.documents.collections;
@@ -27,6 +29,12 @@ Hooks.once("init", () => {
     types: ["struggler"],
     makeDefault: true,
     label: "Struggler Sheet"
+  });
+
+  Actors.registerSheet("spacefucked", HazardSheet, {
+    types: ["threat-hazard"],
+    makeDefault: true,
+    label: "Hazard Sheet"
   });
 
 

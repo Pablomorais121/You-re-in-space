@@ -709,3 +709,19 @@
   font-weight: 700;
   color: var(--sf-black);
 }
+
+.editor-content {
+  min-height: 100px;
+  border: 1px solid #999;
+  padding: 6px;
+}
+
+.editor-content .ProseMirror {
+  min-height: 90px;
+  outline: none;
+}
+
+.editor-content .editor-menu {
+  border-bottom: 1px solid #999;
+  margin-bottom: 4px;
+}

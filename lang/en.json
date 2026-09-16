@@ -47,6 +47,9 @@
 
     "Biography": "Biography",
 
+    "TriggerCondition": "Trigger Condition",
+    "Description": "Description",
+
     "RollStat": "Stat",
     "RollStatNone": "None",
     "RollDesperation": "Desperation",

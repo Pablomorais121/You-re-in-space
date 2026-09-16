@@ -10,6 +10,11 @@ export default class HazardThreatData extends BaseThreatData {
             initial: ""
         });
 
+         schema.description = new HTMLField({
+            required: false,
+            initial: ""
+        });
+
         return schema;
     }
 }
