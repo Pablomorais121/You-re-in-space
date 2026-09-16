@@ -49,6 +49,10 @@
 
     "TriggerCondition": "Trigger Condition",
     "Description": "Description",
+    "Health": "Health",
+    "SlowThreshold": "Slow Threshold",
+    "HaltThreshold": "Halt Threshold",
+    "Immunities": "Immunities",
 
     "RollStat": "Stat",
     "RollStatNone": "None",

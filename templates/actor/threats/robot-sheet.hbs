@@ -1,0 +1,42 @@
+<div>
+    <div>
+        <input type="text" name="name" value="{{actor.name}}">
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Health"}}</label>
+        <input type="number" name="system.health" value="{{system.health}}">
+    </div>
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.SlowThreshold"}}</label>
+        <input type="number" name="system.slowThreshold" value="{{system.slowThreshold}}">
+    </div>
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.HaltThreshold"}}</label>
+        <input type="number" name="system.haltThreshold" value="{{system.haltThreshold}}">
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Immunities"}}</label>
+        <button type="button" class="edit-toggle" data-action="toggleEditor" data-field="immunities">
+            <i class="fas fa-edit"></i>
+        </button>
+        {{#if (sf_has editingFields "immunities")}}
+            <prose-mirror name="system.immunities" value="{{system.immunities}}"></prose-mirror>
+        {{else}}
+            <div class="enriched-preview">{{{enrichedImmunities}}}</div>
+        {{/if}}
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Description"}}</label>
+        <button type="button" class="edit-toggle" data-action="toggleEditor" data-field="description">
+            <i class="fas fa-edit"></i>
+        </button>
+        {{#if (sf_has editingFields "description")}}
+            <prose-mirror name="system.description" value="{{system.description}}"></prose-mirror>
+        {{else}}
+            <div class="enriched-preview">{{{enrichedDescription}}}</div>
+        {{/if}}
+    </div>
+</div>

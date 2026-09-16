@@ -6,6 +6,7 @@ import MonsterThreatData from "./data/threats/threat-monster.mjs";
 
 import StrugglerSheet from "./sheets/struggler-sheet.mjs";
 import HazardSheet from "./sheets/threats/hazard-sheet.mjs";
+import RobotSheet from "./sheets/threats/robot-sheet.mjs";
 
 Hooks.once("init", () => {
   console.log("Spacefucked | Initializing 'You're in Space and Everything's Fucked' ");
@@ -35,6 +36,12 @@ Hooks.once("init", () => {
     types: ["threat-hazard"],
     makeDefault: true,
     label: "Hazard Sheet"
+  });
+
+  Actors.registerSheet("spacefucked", RobotSheet, {
+    types: ["threat-robot"],
+    makeDefault: true,
+    label: "Robot Sheet"
   });
 
 
