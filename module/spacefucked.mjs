@@ -8,6 +8,7 @@ import StrugglerSheet from "./sheets/struggler-sheet.mjs";
 import HazardSheet from "./sheets/threats/hazard-sheet.mjs";
 import RobotSheet from "./sheets/threats/robot-sheet.mjs";
 import PersonSheet from "./sheets/threats/person-sheet.mjs";
+import MonsterSheet from "./sheets/threats/monster-sheet.mjs";
 
 Hooks.once("init", () => {
   console.log("Spacefucked | Initializing 'You're in Space and Everything's Fucked' ");
@@ -24,7 +25,9 @@ Hooks.once("init", () => {
   });
   Handlebars.registerHelper("sf_has", (set, value) => set?.has(value));
   Handlebars.registerHelper("sf_gte", (a, b) => a >= b);
+  Handlebars.registerHelper("sf_includes", (arr, value) => Array.isArray(arr) && arr.includes(value));
   Handlebars.registerHelper("eq", (a, b) => a === b);
+  Handlebars.registerHelper("array", (...args) => args.slice(0, -1));
 
   const {Actors, Items} = foundry.documents.collections;
 
@@ -50,7 +53,13 @@ Hooks.once("init", () => {
     types: ["threat-person"],
     makeDefault: true,
     label: "Person Sheet"
-});
+  });
+
+  Actors.registerSheet("spacefucked", MonsterSheet, {
+    types: ["threat-monster"],
+    makeDefault: true,
+    label: "Monster Sheet"
+  });
 
 
 });

@@ -1,0 +1,130 @@
+<div>
+    <div>
+        <input type="text" name="name" value="{{actor.name}}">
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Health"}}</label>
+        <input type="number" name="system.health" value="{{system.health}}">
+    </div>
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Limbs"}}</label>
+        <input type="number" name="system.limbs" value="{{system.limbs}}">
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Size"}}</label>
+        <select name="system.size">
+            <option value=""></option>
+            <option value="Tiny" {{#if (eq system.size "Tiny")}}selected{{/if}}>Tiny</option>
+            <option value="Half-pint" {{#if (eq system.size "Half-pint")}}selected{{/if}}>Half-pint</option>
+            <option value="Human-ish" {{#if (eq system.size "Human-ish")}}selected{{/if}}>Human-ish</option>
+            <option value="Massive" {{#if (eq system.size "Massive")}}selected{{/if}}>Massive</option>
+        </select>
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Body"}}</label>
+        <select name="system.body">
+            <option value=""></option>
+            <option value="Insectoid" {{#if (eq system.body "Insectoid")}}selected{{/if}}>Insectoid</option>
+            <option value="Slithering" {{#if (eq system.body "Slithering")}}selected{{/if}}>Slithering</option>
+            <option value="Humanoid" {{#if (eq system.body "Humanoid")}}selected{{/if}}>Humanoid</option>
+            <option value="Quadruped" {{#if (eq system.body "Quadruped")}}selected{{/if}}>Quadruped</option>
+            <option value="Metal-fused" {{#if (eq system.body "Metal-fused")}}selected{{/if}}>Metal-fused</option>
+            <option value="Horror" {{#if (eq system.body "Horror")}}selected{{/if}}>Horror</option>
+        </select>
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Behaviour"}}</label>
+        <select name="system.behaviour">
+            <option value=""></option>
+            <option value="Relentless" {{#if (eq system.behaviour "Relentless")}}selected{{/if}}>Relentless</option>
+            <option value="Reproducer" {{#if (eq system.behaviour "Reproducer")}}selected{{/if}}>Reproducer</option>
+            <option value="Trapper" {{#if (eq system.behaviour "Trapper")}}selected{{/if}}>Trapper</option>
+            <option value="Grappler" {{#if (eq system.behaviour "Grappler")}}selected{{/if}}>Grappler</option>
+            <option value="Stalker" {{#if (eq system.behaviour "Stalker")}}selected{{/if}}>Stalker</option>
+            <option value="Climber" {{#if (eq system.behaviour "Climber")}}selected{{/if}}>Climber</option>
+        </select>
+    </div>
+
+    {{#if isGM}}
+    <div class="field-row gm-only">
+        <label>{{localize "SPACEFUCKED.WeakPoint"}}</label>
+        <select name="system.weakpoint">
+            <option value=""></option>
+            <option value="Arm(s)" {{#if (eq system.weakpoint "Arm(s)")}}selected{{/if}}>Arm(s)</option>
+            <option value="Leg(s)" {{#if (eq system.weakpoint "Leg(s)")}}selected{{/if}}>Leg(s)</option>
+            <option value="Head(s)" {{#if (eq system.weakpoint "Head(s)")}}selected{{/if}}>Head(s)</option>
+            <option value="Chest(s)" {{#if (eq system.weakpoint "Chest(s)")}}selected{{/if}}>Chest(s)</option>
+            <option value="Pustule(s)" {{#if (eq system.weakpoint "Pustule(s)")}}selected{{/if}}>Pustule(s)</option>
+            <option value="Other Limb(s)" {{#if (eq system.weakpoint "Other Limb(s)")}}selected{{/if}}>Other Limb(s)</option>
+        </select>
+    </div>
+    {{/if}}
+
+    <fieldset>
+        <legend>{{localize "SPACEFUCKED.ExtraFeatures"}}</legend>
+        {{#each (array "Carapace" "Extremely Fast" "Sapient" "Flies" "Explodes" "Transforms") as |opt|}}
+        <label class="checkbox-option">
+            <input type="checkbox" name="system.extraFeatures" value="{{opt}}" {{#if (sf_includes ../system.extraFeatures opt)}}checked{{/if}}>
+            {{opt}}
+        </label>
+        {{/each}}
+    </fieldset>
+
+    <fieldset>
+        <legend>{{localize "SPACEFUCKED.Gimmicks"}}</legend>
+        {{#each (array "Corrosive" "Venom-filled" "Hulking" "Piercing" "Imitation" "Resource-Full") as |opt|}}
+        <label class="checkbox-option">
+            <input type="checkbox" name="system.gimmicks" value="{{opt}}" {{#if (sf_includes ../system.gimmicks opt)}}checked{{/if}}>
+            {{opt}}
+        </label>
+        {{/each}}
+    </fieldset>
+
+    <fieldset>
+        <legend>{{localize "SPACEFUCKED.Quirks"}}</legend>
+        {{#each (array "Lumbering" "Eyeless" "Impulsive" "Flammable" "Stationary" "Melting") as |opt|}}
+        <label class="checkbox-option">
+            <input type="checkbox" name="system.quirks" value="{{opt}}" {{#if (sf_includes ../system.quirks opt)}}checked{{/if}}>
+            {{opt}}
+        </label>
+        {{/each}}
+    </fieldset>
+
+    <div class="field-row">
+        <label>
+            <input type="checkbox" name="system.isBoss" {{#if system.isBoss}}checked{{/if}}>
+            {{localize "SPACEFUCKED.IsBoss"}}
+        </label>
+    </div>
+
+    {{#if system.isBoss}}
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Encounter"}}</label>
+        <select name="system.encounter">
+            <option value=""></option>
+            <option value="Cloaked" {{#if (eq system.encounter "Cloaked")}}selected{{/if}}>Cloaked</option>
+            <option value="Complicated" {{#if (eq system.encounter "Complicated")}}selected{{/if}}>Complicated</option>
+            <option value="Corridor" {{#if (eq system.encounter "Corridor")}}selected{{/if}}>Corridor</option>
+            <option value="Cosmonaut" {{#if (eq system.encounter "Cosmonaut")}}selected{{/if}}>Cosmonaut</option>
+            <option value="Concentration" {{#if (eq system.encounter "Concentration")}}selected{{/if}}>Concentration</option>
+            <option value="Cosmic" {{#if (eq system.encounter "Cosmic")}}selected{{/if}}>Cosmic</option>
+        </select>
+    </div>
+    {{/if}}
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Description"}}</label>
+        <button type="button" class="edit-toggle" data-action="toggleEditor" data-field="description">
+            <i class="fas fa-edit"></i>
+        </button>
+        {{#if (sf_has editingFields "description")}}
+            <prose-mirror name="system.description" value="{{system.description}}"></prose-mirror>
+        {{else}}
+            <div class="enriched-preview">{{{enrichedDescription}}}</div>
+        {{/if}}
+    </div>
+</div>
