@@ -53,6 +53,11 @@
     "SlowThreshold": "Slow Threshold",
     "HaltThreshold": "Halt Threshold",
     "Immunities": "Immunities",
+    "Disposition": "Disposition",
+    "DispositionFriendly": "Friendly",
+    "DispositionNeutral": "Neutral",
+    "DispositionHostile": "Hostile",
+    "Motivation": "Motivation",
 
     "RollStat": "Stat",
     "RollStatNone": "None",
