@@ -20,7 +20,10 @@
   ],
 
   "styles": [
-    "styles/spacefucked.css"
+    "/styles/base.css",
+    "styles/struggler.css",
+    "styles/threats.css",
+    "styles/roll.css"
   ],
 
   "languages": [
