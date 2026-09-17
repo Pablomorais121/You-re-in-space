@@ -3,7 +3,6 @@ import HazardThreatData from "./data/threats/threat-hazard.mjs";
 import RobotThreatData from "./data/threats/threat-robot.mjs";
 import PersonThreatData from "./data/threats/threat-person.mjs";
 import MonsterThreatData from "./data/threats/threat-monster.mjs";
-import BaseItemData from "./data/items/base-item.mjs";
 import WeaponData from "./data/items/weapon.mjs";
 import ArmorData from "./data/items/armor.mjs";
 import UtilityData from "./data/items/utility.mjs";
@@ -14,6 +13,7 @@ import HazardSheet from "./sheets/threats/hazard-sheet.mjs";
 import RobotSheet from "./sheets/threats/robot-sheet.mjs";
 import PersonSheet from "./sheets/threats/person-sheet.mjs";
 import MonsterSheet from "./sheets/threats/monster-sheet.mjs";
+import WeaponSheet from "./sheets/items/weapon-sheet.mjs";
 
 Hooks.once("init", () => {
   console.log("Spacefucked | Initializing 'You're in Space and Everything's Fucked' ");
@@ -68,6 +68,12 @@ Hooks.once("init", () => {
     types: ["threat-monster"],
     makeDefault: true,
     label: "Monster Sheet"
+  });
+
+  Items.registerSheet("spacefucked", WeaponSheet, {
+    types: ["weapon"],
+    makeDefault: true,
+    label: "Weapon Sheet"
   });
 
 

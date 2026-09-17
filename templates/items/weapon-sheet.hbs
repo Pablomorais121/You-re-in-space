@@ -1,0 +1,43 @@
+<div>
+    <div>
+        <input type="text" name="name" value="{{item.name}}">
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Category"}}</label>
+        <select name="system.category">
+            <option value=""></option>
+            <option value="Melee" {{#if (eq system.category "Melee")}}selected{{/if}}>Melee</option>
+            <option value="Projectile" {{#if (eq system.category "Projectile")}}selected{{/if}}>Projectile</option>
+            <option value="Thrown" {{#if (eq system.category "Thrown")}}selected{{/if}}>Thrown</option>
+            <option value="Placed & Triggered" {{#if (eq system.category "Placed & Triggered")}}selected{{/if}}>Placed & Triggered</option>
+        </select>
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Damage"}}</label>
+        <input type="number" name="system.damage" value="{{system.damage}}">
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.DamageType"}}</label>
+        <input type="text" name="system.damageType" value="{{system.damageType}}">
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.AmmoType"}}</label>
+        <input type="text" name="system.ammoType" value="{{system.ammoType}}">
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Description"}}</label>
+        <button type="button" class="edit-toggle" data-action="toggleEditor" data-field="description">
+            <i class="fas fa-edit"></i>
+        </button>
+        {{#if (sf_has editingFields "description")}}
+            <prose-mirror name="system.description" value="{{system.description}}"></prose-mirror>
+        {{else}}
+            <div class="enriched-preview">{{{enrichedDescription}}}</div>
+        {{/if}}
+    </div>
+</div>

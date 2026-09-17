@@ -78,7 +78,12 @@
     "RollFailure": "Failure",
     "RollPyrrhic": "Pyrrhic Success",
     "RollSuccess": "Success",
-    "RollPool": "Dice Pool"
+    "RollPool": "Dice Pool",
+
+    "Category": "Category",
+    "Damage": "Damage",
+    "DamageType": "Damage Type",
+    "AmmoType": "Ammo Type"
 
   },
 
