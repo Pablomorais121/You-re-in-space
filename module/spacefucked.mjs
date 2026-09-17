@@ -3,6 +3,11 @@ import HazardThreatData from "./data/threats/threat-hazard.mjs";
 import RobotThreatData from "./data/threats/threat-robot.mjs";
 import PersonThreatData from "./data/threats/threat-person.mjs";
 import MonsterThreatData from "./data/threats/threat-monster.mjs";
+import BaseItemData from "./data/items/base-item.mjs";
+import WeaponData from "./data/items/weapon.mjs";
+import ArmorData from "./data/items/armor.mjs";
+import UtilityData from "./data/items/utility.mjs";
+import KeyItemData from "./data/items/keyitem.mjs";
 
 import StrugglerSheet from "./sheets/struggler-sheet.mjs";
 import HazardSheet from "./sheets/threats/hazard-sheet.mjs";
@@ -18,6 +23,10 @@ Hooks.once("init", () => {
   CONFIG.Actor.dataModels["threat-robot"] = RobotThreatData;
   CONFIG.Actor.dataModels["threat-person"] = PersonThreatData;
   CONFIG.Actor.dataModels["threat-monster"] = MonsterThreatData;
+  CONFIG.Item.dataModels.weapon = WeaponData;
+  CONFIG.Item.dataModels.armor = ArmorData;
+  CONFIG.Item.dataModels.utility = UtilityData;
+  CONFIG.Item.dataModels.keyitem = KeyItemData;
 
 
   Handlebars.registerHelper("sf_range", (n) => {

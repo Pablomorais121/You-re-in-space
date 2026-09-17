@@ -47,6 +47,11 @@
         "threat-person": {},
         "threat-monster": {}
       },
-      "Item" : {}
+      "Item" : {
+        "weapon": {},
+        "armor": {},
+        "utility": {},
+        "keyitem": {}
+      }
     }
 }
