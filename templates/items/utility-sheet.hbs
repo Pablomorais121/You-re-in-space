@@ -1,0 +1,24 @@
+<div>
+    <div>
+        <input type="text" name="name" value="{{item.name}}">
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Uses"}}</label>
+        <input type="number" name="system.uses.value" value="{{system.uses.value}}">
+        <span>/</span>
+        <input type="number" name="system.uses.max" value="{{system.uses.max}}">
+    </div>
+
+    <div class="field-row">
+        <label>{{localize "SPACEFUCKED.Description"}}</label>
+        <button type="button" class="edit-toggle" data-action="toggleEditor" data-field="description">
+            <i class="fas fa-edit"></i>
+        </button>
+        {{#if (sf_has editingFields "description")}}
+            <prose-mirror name="system.description" value="{{system.description}}"></prose-mirror>
+        {{else}}
+            <div class="enriched-preview">{{{enrichedDescription}}}</div>
+        {{/if}}
+    </div>
+</div>

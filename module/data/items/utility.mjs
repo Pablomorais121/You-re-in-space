@@ -1,4 +1,5 @@
 const { SchemaField, NumberField } = foundry.data.fields;
+import BaseItemData from "./base-item.mjs";
 
 export default class UtilityData extends BaseItemData {
     static defineSchema() {
