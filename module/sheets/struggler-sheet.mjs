@@ -30,9 +30,9 @@ export default class StrugglerSheet extends HandlebarsApplicationMixin(ActorShee
   static PARTS = {
     header: { template: "systems/spacefucked/templates/actor/struggler/struggler-header.hbs",},
     tabs: { template: "templates/generic/tab-navigation.hbs",},
-    main: { template: "systems/spacefucked/templates/actor/struggler/struggler-main.hbs"},
-    inventory: { template: "systems/spacefucked/templates/actor/struggler/struggler-inventory.hbs"},
-    notes: { template: "systems/spacefucked/templates/actor/struggler/struggler-notes.hbs"}
+    main: { template: "systems/spacefucked/templates/actor/struggler/struggler-main.hbs", scrollable:[""]},
+    inventory: { template: "systems/spacefucked/templates/actor/struggler/struggler-inventory.hbs", scrollable:[""]},
+    notes: { template: "systems/spacefucked/templates/actor/struggler/struggler-notes.hbs", scrollable:[""]}
   };
 
   async _prepareContext(options) {
