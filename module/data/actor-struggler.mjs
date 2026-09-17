@@ -50,7 +50,7 @@ export default class StrugglerData extends foundry.abstract.TypeDataModel {
         })
     
 
-        schema.experience = new SchemaField({
+        schema.xp = new SchemaField({
             value: new NumberField({
                 required: true,
                 integer: true,
