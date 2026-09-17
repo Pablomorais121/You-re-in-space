@@ -94,6 +94,12 @@
       "threat-robot": "Robot",
       "threat-person": "Person",
       "threat-monster": "Monster"
+    },
+    "Item": {
+      "weapon": "Weapon",
+      "armor": "Armor",
+      "utility": "Utility",
+      "keyitem": "Key Item"
     }
   }
 }
