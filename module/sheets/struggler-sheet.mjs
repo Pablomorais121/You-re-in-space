@@ -11,7 +11,8 @@ export default class StrugglerSheet extends HandlebarsApplicationMixin(ActorShee
     position: { width: 650, height: 750},
     form: {submitOnChange: true},
     actions: {
-      openRoll: StrugglerSheet.#onOpenRoll
+      openRoll: StrugglerSheet.#onOpenRoll,
+      togglePip: StrugglerSheet.#onTogglePip
     }
   };
 
@@ -60,6 +61,31 @@ export default class StrugglerSheet extends HandlebarsApplicationMixin(ActorShee
 
   static async #onOpenRoll(event, target) {
     await performRoll(this.actor);
+  }
+
+  static async #onTogglePip(event, target) {
+    const resource = target.dataset.resource;
+    const clickedValue = Number(target.dataset.value);
+
+    if (resource == "xp") {
+      const current = this.actor.system.xp.value;
+      const newValue = current === clickedValue ? clickedValue -1 : clickedValue;
+      
+      if (newValue >= 5) {
+        await this.actor.update ({
+          "system.xp.value": 0,
+          "system.xp.marks": this.actor.system.xp.marks + 1
+        });
+      } else {
+        await this.actor.update({ "system.xp.value": newValue });
+      }
+      return
+    }
+
+    const current = this.actor.system.resources[resource].value;
+    const newValue = current === clickedValue ? clickedValue -1 : clickedValue;
+    await this.actor.update ({[`system.resources.${resource}.value`]: newValue});
+
   }
 
 }

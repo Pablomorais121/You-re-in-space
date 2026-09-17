@@ -20,7 +20,7 @@
           <label>{{localize "SPACEFUCKED.Will"}}</label>
           <div class="pips">
             {{#each (sf_range system.resources.will.max) as |n|}}
-            <span class="resource-pip {{#if (sf_gte system.resources.will.value n)}}filled{{/if}}" data-resource="will" data-value="{{n}}"></span>
+            <span class="resource-pip {{#if (sf_gte ../system.resources.will.value n)}}filled{{/if}}" data-action="togglePip" data-resource="will" data-value="{{n}}"></span>
             {{/each}}
           </div>
           <input type="number" class="pip-max" name="system.resources.will.max" value="{{system.resources.will.max}}" title="{{localize 'SPACEFUCKED.Max'}}" />
@@ -29,7 +29,7 @@
           <label>{{localize "SPACEFUCKED.Luck"}}</label>
           <div class="pips">
             {{#each (sf_range system.resources.luck.max) as |n|}}
-            <span class="resource-pip {{#if (sf_gte system.resources.luck.value n)}}filled{{/if}}" data-resource="luck" data-value="{{n}}"></span>
+            <span class="resource-pip {{#if (sf_gte ../system.resources.luck.value n)}}filled{{/if}}" data-action="togglePip" data-resource="luck" data-value="{{n}}"></span>
             {{/each}}
           </div>
           <input type="number" class="pip-max" name="system.resources.luck.max" value="{{system.resources.luck.max}}" title="{{localize 'SPACEFUCKED.Max'}}" />
@@ -52,7 +52,11 @@
         <h3>{{localize "SPACEFUCKED.Progression"}}</h3>
         <div class="xp-row">
           <label>{{localize "SPACEFUCKED.XP"}}</label>
-          <input type="number" name="system.xp.value" value="{{system.xp.value}}" />
+          <div class="pips">
+            {{#each (sf_range 5) as |n|}}
+              <span class="resource-pip {{#if (sf_gte ../system.xp.value n)}}filled{{/if}}" data-action="togglePip" data-resource="xp" data-value="{{n}}"></span>
+            {{/each}}  
+          </div>
           <label>{{localize "SPACEFUCKED.Marks"}}</label>
           <input type="number" name="system.xp.marks" value="{{system.xp.marks}}" />
         </div>
