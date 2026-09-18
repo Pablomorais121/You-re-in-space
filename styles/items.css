@@ -1,0 +1,161 @@
+/* ============================================================
+   ITEM SHEETS — "Requisition Slip" Design
+   ============================================================ */
+
+.item.sheet .window-header {
+  background: var(--sf-black);
+  color: #fff;
+}
+
+.item.sheet .window-title {
+  font-family: var(--sf-font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.item.sheet .window-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--sf-white);
+  font-family: var(--sf-font-body);
+  color: var(--sf-black);
+}
+
+.item.sheet .window-content > div {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 14px;
+}
+
+/* ------------------------------------------------------------
+   Category badge
+   ------------------------------------------------------------ */
+.item.sheet .window-content > div::before {
+  display: block;
+  color: #fff;
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  padding: 6px 12px;
+  margin: -14px -14px 14px -14px;
+  background: var(--sf-red);
+}
+
+.weapon .window-content > div::before { content: "OFFENSIVE ITEM"; }
+.armor .window-content > div::before { content: "DEFENSIVE ITEM"; }
+.utility .window-content > div::before { content: "UTILITY ITEM"; }
+.keyitem .window-content > div::before { content: "KEY ITEM"; }
+
+/* ------------------------------------------------------------
+   Item name
+   ------------------------------------------------------------ */
+.item.sheet .window-content > div > div:first-of-type input[name="name"] {
+  width: 100%;
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  border-bottom: 2px solid var(--sf-red);
+  padding: 4px 0;
+  background: transparent;
+  color: var(--sf-black);
+  margin-bottom: 12px;
+}
+
+/* ------------------------------------------------------------
+   Field rows (reuses .field-row/.edit-toggle/.enriched-preview
+   conventions from threats.css)
+   ------------------------------------------------------------ */
+.item.sheet .field-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.item.sheet .field-row label {
+  font-family: var(--sf-font-display);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: var(--sf-red);
+  min-width: 90px;
+}
+
+.item.sheet .field-row input[type="text"],
+.item.sheet .field-row input[type="number"],
+.item.sheet .field-row select {
+  border: 1px solid var(--sf-black);
+  border-radius: 3px;
+  padding: 4px 6px;
+  font-family: var(--sf-font-body);
+  background: #fff;
+  color: var(--sf-black);
+}
+
+.item.sheet .field-row input[type="number"] {
+  width: 60px;
+}
+
+.item.sheet .field-row select {
+  flex: 1;
+  min-width: 120px;
+}
+
+.item.sheet .field-row select option {
+  color: var(--sf-black);
+  background: #fff;
+}
+
+.item.sheet input:focus,
+.item.sheet select:focus {
+  outline: none;
+  border-color: var(--sf-red);
+}
+
+.item.sheet .field-row:has(.edit-toggle) {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.item.sheet .edit-toggle {
+  align-self: flex-start;
+  background: var(--sf-black);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+.item.sheet .edit-toggle:hover {
+  background: var(--sf-red);
+}
+
+.item.sheet .enriched-preview {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 40px;
+  background: #fafafa;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.item.sheet .enriched-preview:empty::before {
+  content: "—";
+  color: #aaa;
+}
+
+.item.sheet prose-mirror {
+  border: 1px solid var(--sf-black);
+  border-radius: 4px;
+}

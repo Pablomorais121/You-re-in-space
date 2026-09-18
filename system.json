@@ -23,7 +23,8 @@
     "/styles/base.css",
     "styles/struggler.css",
     "styles/threats.css",
-    "styles/roll.css"
+    "styles/roll.css",
+    "styles/items.css"
   ],
 
   "languages": [
