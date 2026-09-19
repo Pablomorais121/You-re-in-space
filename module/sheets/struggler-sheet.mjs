@@ -1,4 +1,4 @@
-import {performRoll} from "../utils.mjs";
+import {performRoll, performSearchCheck} from "../utils.mjs";
 
 const { ActorSheetV2 } = foundry.applications.sheets;
 const {HandlebarsApplicationMixin} = foundry.applications.api;
@@ -12,6 +12,7 @@ export default class StrugglerSheet extends HandlebarsApplicationMixin(ActorShee
     form: {submitOnChange: true},
     actions: {
       openRoll: StrugglerSheet.#onOpenRoll,
+      openSearchCheck: StrugglerSheet.#onOpenSearchCheck,
       togglePip: StrugglerSheet.#onTogglePip
     }
   };
@@ -61,6 +62,10 @@ export default class StrugglerSheet extends HandlebarsApplicationMixin(ActorShee
 
   static async #onOpenRoll(event, target) {
     await performRoll(this.actor);
+  }
+
+  static async #onOpenSearchCheck(event, target) {
+    await performSearchCheck(this.actor);
   }
 
   static async #onTogglePip(event, target) {

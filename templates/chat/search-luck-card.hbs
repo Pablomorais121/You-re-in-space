@@ -1,0 +1,10 @@
+<div class="spacefucked-roll-card">
+    <h3 class="roll-outcome outcome-success">{{localize "SPACEFUCKED.SearchLuckTitle"}}</h3>
+    <p class="roll-hits">{{localize "SPACEFUCKED.RollHits"}}: {{hits}}</p>
+    <ul class="search-luck-list">
+        {{#each table as |entry|}}
+            <li><strong>{{entry.name}}</strong> — {{entry.desc}}</li>
+        {{/each}}
+    </ul>
+    {{{rollHTML}}}
+</div>

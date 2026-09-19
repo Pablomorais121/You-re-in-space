@@ -83,7 +83,12 @@
     "Category": "Category",
     "Damage": "Damage",
     "DamageType": "Damage Type",
-    "AmmoType": "Ammo Type"
+    "AmmoType": "Ammo Type",
+
+    "SearchUseLuck": "Spend 1 Luck to pick",
+    "SearchResult": "Item Found",
+    "SearchTableRoll": "Table Roll",
+    "SearchLuckTitle": "Choose an Item"
 
   },
 
