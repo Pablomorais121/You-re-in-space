@@ -53,7 +53,6 @@ export async function performSearchCheck(actor) {
         render: (event, dialog) => {
             const form = dialog.element.querySelector("form");
             const statInput = form.elements.stat;
-            const desperationInput = form.elements.desperation;
             const advantageInput = form.elements.advantage;
             const disadvantageInput = form.elements.disadvantage;
             const poolValueEl = form.querySelector(".pool-value");
@@ -64,10 +63,9 @@ export async function performSearchCheck(actor) {
             function updatePool() {
                 const stat = statInput.value;
                 const statValue = stat !== "none" ? (actor.system.stats[stat]?.value ?? 0) : 0;
-                const desperation = desperationInput.checked ? 2 : 0;
                 const advantage = Number(advantageInput.value) || 0;
                 const disadvantage = Number(disadvantageInput.value) || 0;
-                const pool = Math.max(2 + statValue + desperation + advantage - disadvantage, 0);
+                const pool = Math.max(2 + statValue + advantage - disadvantage, 0);
                 poolValueEl.textContent = pool;
             }
 
@@ -85,8 +83,6 @@ export async function performSearchCheck(actor) {
                     updatePool();
                 });
             });
-
-            desperationInput.addEventListener("change", updatePool);
 
             counterButtons.forEach(btn => {
                 btn.addEventListener("click", () => {
@@ -107,7 +103,6 @@ export async function performSearchCheck(actor) {
             label: "Search",
             callback: (event, button) => ({
                 stat: button.form.elements.stat.value,
-                desperation: button.form.elements.desperation.checked,
                 advantage: Number(button.form.elements.advantage.value) || 0,
                 disadvantage: Number(button.form.elements.disadvantage.value) || 0,
                 useLuck: button.form.elements.useLuck.checked
